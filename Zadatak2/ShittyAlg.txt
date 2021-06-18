@@ -1,0 +1,42 @@
+            if (i % REDAK  == 0) // LIJEVI STUPAC
+            {
+                adjacency_list[i].push_back(neighbor(i + 1, 1));
+                if (j == 1)
+                {
+                    adjacency_list[i].push_back(neighbor(i + (REDAK * j), 1));
+
+                }
+            }
+            else if (i % REDAK == REDAK - 1) // DESNI STUPAC
+            {
+                adjacency_list[i].push_back(neighbor(i - 1, 1));
+                if (j == -1)
+                {
+                    adjacency_list[i].push_back(neighbor(i + (REDAK * j), 1));
+                }
+            }
+            else if (PiZ_Red < 0 || PiZ_Red >= adjacency_list.size() ) // PRVI I ZADNJI REDAK
+            {
+
+                adjacency_list[i].push_back(neighbor(i+j, 1));
+                            
+                if (PiZ_Red < 0 && j == 1)
+                {
+                    adjacency_list[i].push_back(neighbor(i + (REDAK * j), 1));
+                }
+                else if (PiZ_Red >= adjacency_list.size() && j == -1)
+                {
+                    adjacency_list[i].push_back(neighbor(i + (REDAK * j), 1));
+                }
+            }
+            else
+            {
+                /*
+                    0   1   2  3
+                    4  |5|  6  7
+                    8   9   10 11
+                    12  13  14 15
+                   */
+                
+                adjacency_list[i].push_back(neighbor(i + (REDAK * j), 1));
+            }
